@@ -13,12 +13,12 @@ export default function Accordion() {
         {data.map((item) => (
           <div className="item" key={item.id}>
             <div className="title" onClick={() => toggle(item.id)}>
-              <h3>{item.question}</h3>
+              <h3 className="question">{item.question}</h3>
               <span>{selected === item.id ? "-" : "+"}</span>
+              <div className={`answer ${selected === item.id ? "show" : ""}`}>
+                {item.answer}
+              </div>
             </div>
-            {selected === item.id && (
-              <div className="content">{item.answer}</div>
-            )}
           </div>
         ))}
       </div>
